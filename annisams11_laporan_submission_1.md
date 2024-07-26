@@ -66,7 +66,7 @@ Untuk memahami data, dilakukan beberapa cara yaitu
 - melihat apakah ada nilai null dalam dataset dengan **data.isnull().sum()**
 - Melakukan univariate analysis dengan melakukan visualisasi data pada setiap fitur. Untuk fitur numerik digunakan histogram dan data kategorikal dengan bar chart.
 Hasil EDA
-![Hasil](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/blob/main/eda_result.png)
+![Hasil](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/main/eda_result.png)
 
 
 ## Data Preparation
@@ -157,7 +157,7 @@ Kedua model dievaluasi dengan metrik evaluasi akurasi, presisi, recall, dan F1-s
 
 Dapat dilihat bahwa model dengan menggunakan metode random forest memiliki hasil yang lebih baik
 Berikut merupakan hasil percobaan dengan data testing
-![Prediksi](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/blob/main/prediksi.png)
+![Prediksi](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/main/prediksi.png)
 
 Dapat dilihat bahwa hasil prediksi model yang dibuat sama dengan data testing yang artinya model efektif untuk melakukan prediksi dini diabetes melitus.
 
