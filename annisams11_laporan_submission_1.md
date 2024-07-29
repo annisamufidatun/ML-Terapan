@@ -260,10 +260,15 @@ Model prediksi diabetes berbasis machine learning yang dikembangkan dalam proyek
 ## Referensi
 
 [1] [IDF. 2019. IDF Diabetes Atlas 9th Edition.](https://diabetesatlas.org/atlas/ninth-edition/)
+
 [2] [American Diabetes Association. (2019). 2. Classification and Diagnosis of Diabetes: Standards of Medical Care in Diabetes—2019. Diabetes Care, 42(Supplement 1), S13-S28.](https://diabetesjournals.org/care/article/42/Supplement_1/S13/31150/2-Classification-and-Diagnosis-of-Diabetes)
+
 [3] [Zou, Q., Qu, K., Luo, Y., Yin, D., Ju, Y., & Tang, H. (2018). Predicting diabetes mellitus with machine learning techniques. Frontiers in genetics, 9, 515.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6232260/)
+
 [4] [Kavakiotis, I., Tsave, O., Salifoglou, A., Maglaveras, N., Vlahavas, I., & Chouvarda, I. (2017). Machine learning and data mining methods in diabetes research. Computational and structural biotechnology journal, 15, 104-116.](https://www.sciencedirect.com/science/article/pii/S2001037016300733)
+
 [5] [Sacks, D. B. (2011). A1C versus glucose testing: a comparison. Diabetes care, 34(2), 518-523.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3024379/)
+
 [6] [Zheng, Y., Ley, S. H., & Hu, F. B. (2018). Global aetiology and epidemiology of type 2 diabetes mellitus and its complications. Nature Reviews Endocrinology, 14(2), 88-98.](https://pubmed.ncbi.nlm.nih.gov/29219149/)
 
 
