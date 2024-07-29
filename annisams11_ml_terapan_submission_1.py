@@ -46,6 +46,8 @@ Untuk mencapai tujuan tersebut, kita mengajukan beberapa solusi yang dapat diuku
 Dengan menggunakan kedua solusi ini, kita dapat membandingkan kinerja model logistic regression dan random forest untuk menentukan pendekatan mana yang lebih efektif dalam memprediksi risiko diabetes pada tahap awal.
 
 ## **Import library dan dataset**
+
+Dibagian ini library yang diperlukan diimport
 """
 
 # import library
@@ -61,6 +63,8 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 
+"""Dataset diambil langsung dari kaggle dengan import"""
+
 #import kaggle dataset
 !pip install kaggle
 !mkdir -p ~/.kaggle
@@ -69,7 +73,10 @@ from sklearn.linear_model import LogisticRegression
 !kaggle datasets download -d abdelazizsami/early-stage-diabetes-risk-prediction
 !unzip early-stage-diabetes-risk-prediction.zip
 
-"""Link to dataset: [diabetes dataset](https://www.kaggle.com/datasets/abdelazizsami/early-stage-diabetes-risk-prediction)"""
+"""Link to dataset: [diabetes dataset](https://www.kaggle.com/datasets/abdelazizsami/early-stage-diabetes-risk-prediction)
+
+Melihat isi dataset yang sudah diimport
+"""
 
 df = pd.read_csv('/content/diabetes_data_upload.csv')
 df
@@ -77,24 +84,32 @@ df
 """ada 520 baris data dan 17 feature/variabel pada dataset
 
 ## **Exploratory Data Analysis**
+
+Pertama, cek features dalam dataset beserta tipe datanya
 """
 
 #list feature di dataset
 df.info()
 
-# informasi statistik untuk numeric feature
+"""Kemudian untuk fitur numerik kita lihat statistic summarynya"""
+
 df.describe()
 
-# check apakah ada null value
+"""Kita juga melihat apakah ada null value di dataset"""
+
 df.isnull().sum()
 
 """dari hasil tidak ditemukan null value dari dataset
 
 ### **Univariate Analysis**
+
+Untuk univariate analysys kita plot masing-masing feature di dataset. Pertama untuk data numerik digunakan histogram untuk melihat persebarannya
 """
 
 # fitur age
 df.hist(bins=50, figsize=(20,15))
+
+"""Sedangkan untuk fitur kategorikal digunakan barchart untuk melihat persebaran di setiap kategorinya."""
 
 # categorical features
 categorical_features = ['Gender', 'Polyuria', 'Polydipsia', 'sudden weight loss', 'weakness', 'Polyphagia',
@@ -118,6 +133,8 @@ for feature in categorical_features:
 """## **Data Preparation**
 
 ### **Encoding**
+
+Untuk encoding dilakukan dengan cara mapping integer ke kategori. Untuk fitur yang kategorinya yes or no menggunakan looping untuk mempermudah proses encoding. Sedangkan untuk gender dan class encoding di cell terpisah karena memiliki kategori yang berbeda.
 """
 
 # encoding fitur yang kategorinya yes and no
@@ -140,7 +157,10 @@ df['class'] = df['class'].map({'Negative': 0, 'Positive': 1})
 
 df.head()
 
-"""### **Hapus outlier**"""
+"""### **Hapus outlier**
+
+Untuk menghapus outlier dibuat function untuk menghitung IQR. Dari hasil IQR didapatkan batas bawah dan atas. Dari situ baris yang umurnya di bawah batas bawah dan di atas batas atas akan dihapus
+"""
 
 def outlier_treatment(datacolumn):
   sorted(datacolumn)  # Memastikan data sudah urut
@@ -161,7 +181,10 @@ df[(df.Age < lowerbound) | (df.Age > upperbound)]
 data = df.drop(df[(df.Age < lowerbound) | (df.Age > upperbound)].index)
 data
 
-"""### **Standar Scaler**"""
+"""### **Standar Scaler**
+
+Untuk fitur age, value diskala menjadi mean = 0 dan standar deviasi 1 dengan standard scaler.
+"""
 
 scaler = StandardScaler()
 data['Age'] = scaler.fit_transform(data[['Age']])
@@ -180,7 +203,10 @@ print(f'Total # of sample in whole dataset: {len(X)}')
 print(f'Total # of sample in train dataset: {len(X_train)}')
 print(f'Total # of sample in test dataset: {len(X_test)}')
 
-"""### **Model Building**"""
+"""### **Model Building**
+
+Agar evaluasi lebih mudah dibuat function untuk looping ke model yang sudah dibuat dan mengevaluasinya dengan data test yang displit sebelumnya. Untuk evaluasi digunakan metriks akurasi, presisi, recall, dan F1-score
+"""
 
 # function untuk evaluasi model
 def evaluate_model(model, X_train, X_test, y_train, y_test):
@@ -192,19 +218,28 @@ def evaluate_model(model, X_train, X_test, y_train, y_test):
     f1 = f1_score(y_test, y_pred)
     return accuracy, precision, recall, f1
 
-"""### **Logistic Regression**"""
+"""### **Logistic Regression**
 
-logistic_regression_model = LogisticRegression()
+Model dengan metode logistic regeression menggunakan function dari library sklearn dan untuk evaluasi model menggunakan function yang dibuat sebelumnya
+"""
+
+logistic_regression_model = LogisticRegression(random_state=55)
 logistic_metrics = evaluate_model(logistic_regression_model,
                                   X_train, X_test, y_train, y_test)
 
-"""### **Random Forest**"""
+"""### **Random Forest**
 
-random_forest_model = RandomForestClassifier()
+Model dengan metode random forest menggunakan function dari library sklearn dan untuk evaluasi model menggunakan function yang dibuat sebelumnya
+"""
+
+random_forest_model = RandomForestClassifier(n_estimators=50, max_depth=16, random_state=55, n_jobs=-1)
 random_forest_metrics = evaluate_model(random_forest_model,
                                        X_train, X_test, y_train, y_test)
 
-"""### **evaluasi model**"""
+"""### **evaluasi model**
+
+Hasil dari function evaluasi model ditampilkan dalam bentuk dataframe agar mudah dibaca.
+"""
 
 results = pd.DataFrame({
     'Model': ['Logistic Regression', 'Random Forest'],
@@ -219,6 +254,8 @@ print(results)
 """Dari hasil di atas didapatkan bahwa model dengan metode **random forest** mendapatkan hasil lebih baik yaitu dengan akurasi 99%.
 
 **prediksi dengan model**
+
+Untuk memastikan akurasi dilakukan percobaan dengan menggunakan data test yang sudah ada lalu di test menggunakan model dan melihat akurasinya.
 """
 
 # Membuat dictionary untuk menyimpan model

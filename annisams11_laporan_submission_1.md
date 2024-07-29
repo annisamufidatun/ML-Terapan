@@ -6,11 +6,13 @@
 
 Diabetes melitus, umumnya dikenal sebagai diabetes, merupakan penyakit kronis yang serius. Kondisi ini muncul ketika kadar glukosa darah meningkat akibat ketidakmampuan tubuh menghasilkan insulin secara cukup, atau ketidakefektifan dalam menggunakan insulin yang diproduksi. Diabetes melitus menjadi ancaman global yang signifikan terhadap kesehatan, tanpa memandang status sosial ekonomi atau batas negara. Saat ini terdapat 463 juta orang dewasa yang hidup dengan diabetes melitus. Jika tidak ada langkah-langkah yang tepat untuk mengatasi ini, diperkirakan jumlah penderita akan mencapai 578 juta pada tahun 2030. Lebih mengkhawatirkan lagi, angka tersebut diprediksi akan melonjak hingga 700 juta pada tahun 2045 [1].
 
-Diabetes Melitus adalah kondisi yang mengerikan menurut laporan WHO tahun 2016, langkah-langkah penting diperlukan untuk mencegah dan mengobati penyakit ini. Diabetes Tipe I adalah jenis Diabetes paling umum yang terjadi pada kelompok usia yang lebih muda. Penyakit ini meningkat pesat di seluruh dunia karena perubahan gaya hidup dan pola makan yang tidak sehat. Menurut perkiraan Federasi Diabetes Internasional (IDF), prevalensi Diabetes melitus kemungkinan akan meningkat setiap tahunnya. Kasus Diabetes Tipe 2 menjadi lebih menonjol pada usia yang lebih muda dan negara-negara berkembang, mencakup 85-95% dari pasien Diabetes melitus. Penyakit ini terjadi pada kelompok usia antara 18-75 tahun; sekitar 285 juta orang menderita Diabetes di seluruh dunia, menurut survei yang dilakukan pada tahun 2010. Pada tahun 2025, diperkirakan 438 juta orang di negara-negara berkembang akan meningkat dengan tingkat 60-75% dan meningkatkan angka kematian hingga sekitar 60%, yang bisa berakibat fatal [2].
+Meskipun prevalensi diabetes terus meningkat, metode konvensional untuk deteksi dini dan intervensi sering kali terbukti tidak efektif. Skrining tradisional, seperti tes glukosa darah puasa atau tes toleransi glukosa oral, memiliki beberapa keterbatasan. Mereka memerlukan kunjungan ke fasilitas kesehatan, persiapan khusus pasien, dan seringkali mahal untuk dilakukan secara massal. Akibatnya, banyak individu yang berisiko tinggi tidak terdeteksi sampai penyakit mereka sudah berkembang, menyebabkan komplikasi yang serius dan meningkatkan beban pada sistem kesehatan [2].
 
-Prediksi dini diabetes melitus sangat penting untuk mencegah komplikasi serius yang bisa terjadi akibat penyakit ini. Dengan deteksi dini, pasien dapat menerima intervensi yang lebih cepat, seperti perubahan gaya hidup, pengelolaan diet, dan terapi medis yang sesuai, yang semuanya dapat memperlambat atau bahkan menghentikan perkembangan penyakit. Selain itu, prediksi dini dapat membantu mengurangi beban ekonomi pada sistem kesehatan dengan menurunkan angka rawat inap dan perawatan intensif yang mahal. Mengingat angka prevalensi yang terus meningkat, kemampuan untuk memprediksi diabetes melitus pada tahap awal menjadi semakin mendesak untuk mengendalikan epidemi global ini.
+Dalam konteks ini, machine learning menawarkan pendekatan yang menjanjikan untuk meningkatkan deteksi dini dan intervensi diabetes. Model prediktif berbasis machine learning dapat menganalisis berbagai faktor risiko secara simultan, termasuk gejala yang tampaknya tidak terkait, riwayat medis, dan data gaya hidup, untuk mengidentifikasi pola yang mungkin terlewatkan oleh metode konvensional. Studi oleh Zou et al. (2018) menunjukkan bahwa model machine learning dapat memprediksi onset diabetes hingga 5 tahun sebelumnya dengan akurasi yang lebih tinggi dibandingkan metode tradisional [3].
 
-Machine learning sangat membantu untuk melakukan prediksi dini diabetes. Dengan mengembangkan model prediksi diabetes menggunakan data penderita diabetes, diharapkan dapat membantu dalam mendeteksi pola-pola yang mungkin tidak terlihat oleh metode konvensional. Pendekatan ini dapat memberikan kontribusi signifikan dalam mengidentifikasi individu yang berisiko tinggi menderita diabetes, sehingga intervensi dapat dilakukan lebih awal.
+Selain itu, implementasi machine learning dalam skrining diabetes berpotensi meningkatkan aksesibilitas dan efisiensi deteksi dini. Model prediktif dapat diintegrasikan ke dalam aplikasi mobile atau platform online, memungkinkan penilaian risiko awal tanpa perlu kunjungan langsung ke fasilitas kesehatan. Hal ini dapat secara signifikan meningkatkan jangkauan program skrining, terutama di daerah dengan akses terbatas ke layanan kesehatan [4].
+
+Dengan mengembangkan model prediksi diabetes menggunakan data penderita diabetes, diharapkan dapat membantu dalam mendeteksi pola-pola yang mungkin tidak terlihat oleh metode konvensional. Pendekatan ini dapat memberikan kontribusi signifikan dalam mengidentifikasi individu yang berisiko tinggi menderita diabetes, sehingga intervensi dapat dilakukan lebih awal, potensial mengurangi komplikasi jangka panjang dan meningkatkan kualitas hidup pasien.
 
 ## Business Understanding
 
@@ -60,12 +62,14 @@ Dataset ini berisi informasi mengenai tanda dan gejala pasien diabetes yang baru
 
 
 **Exploratory Data Analysis**
+
 Untuk memahami data, dilakukan beberapa cara yaitu 
 - melihat tipe data setiap fitur dengan **data.info()**
 - melihat informasi statistik dari fitur numerik yaitu age dengan **data.describe()**
 - melihat apakah ada nilai null dalam dataset dengan **data.isnull().sum()**
 - Melakukan univariate analysis dengan melakukan visualisasi data pada setiap fitur. Untuk fitur numerik digunakan histogram dan data kategorikal dengan bar chart.
 Hasil EDA
+
 ![Hasil](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/main/eda_result.png)
 
 
@@ -89,9 +93,10 @@ Pada dataset dilakukan beberapa proses berikut
 
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
 
 Metode yang digunakan untuk membangun model adalah **logistic regression** dan **random forest**.
+
+### **Kelebihan dan kekurangan model**
 Logistic Regression
 Kelebihan:
 - Efisien Secara Komputasi:
@@ -115,13 +120,74 @@ Karena menggunakan banyak pohon, Random Forest lebih robust terhadap outlier dib
 Random Forest memberikan informasi tentang pentingnya fitur-fitur dalam prediksi, yang berguna untuk interpretasi dan pemahaman model.
 
 Kekurangan:
-
 - Kompleks dan Sulit Diinterpretasi
 Random Forest adalah model yang kompleks dan sulit untuk diinterpretasi dibandingkan dengan model yang lebih sederhana seperti Logistic Regression.
 - Waktu dan Sumber Daya Komputasi
 Random Forest membutuhkan lebih banyak waktu dan sumber daya komputasi untuk dilatih dan dieksekusi, terutama pada dataset yang besar.
 - Memori yang Dibutuhkan:
 Karena menyimpan banyak pohon keputusan, Random Forest bisa sangat intensif dalam penggunaan memori.
+
+### **Pengerjaan Model**
+Dalam proyek ini, saya mengembangkan dua model machine learning untuk memprediksi risiko diabetes: Logistic Regression dan Random Forest. Berikut adalah penjelasan tentang proses dan tahapan pemodelan, konfirgurasi hyperparameter, serta cara kerja algoritma pada data:
+
+**Proses dan Tahapan Pemodelan**
+1.  Persiapan Data:
+    Sebelum pemodelan, data dibagi menjadi set pelatihan (X_train, y_train) dan set pengujian (X_test, y_test) menggunakan fungsi train_test_split dari scikit-learn.
+2.  Definisi Fungsi Evaluasi:
+    Saya membuat fungsi evaluate_model yang akan digunakan untuk melatih model, membuat prediksi, dan menghitung metrik evaluasi (akurasi, presisi, recall, dan F1-score).
+
+3.  Pembuatan dan Evaluasi Model:
+    Saya membuat instance dari masing-masing model dan mengevaluasinya menggunakan fungsi evaluate_model.
+
+**Cara Kerja Algoritma**
+Logistic Regression
+Logistic Regression bekerja dengan membangun model linear dari fitur input, kemudian menerapkan fungsi sigmoid untuk menghasilkan probabilitas kelas output. Model ini cocok untuk masalah klasifikasi biner seperti prediksi diabetes.
+
+Proses:
+Model membangun kombinasi linear dari fitur input.
+Fungsi sigmoid diterapkan pada kombinasi linear ini untuk menghasilkan probabilitas.
+Jika probabilitas > 0.5, prediksi adalah kelas positif (diabetes), jika tidak, kelas negatif (non-diabetes).
+
+Random Forest
+Random Forest adalah ensemble dari pohon keputusan. Setiap pohon dibangun menggunakan subset acak dari fitur dan data pelatihan.
+
+Proses:
+Beberapa pohon keputusan dibangun, masing-masing menggunakan subset acak dari data dan fitur.
+Setiap pohon membuat prediksi independen.
+Prediksi akhir adalah hasil voting mayoritas dari semua pohon.
+
+### Konfigurasi Hyperparameter
+
+Dalam implementasi ini, saya menggunakan konfigurasi hyperparameter tertentu untuk kedua model. Berikut adalah penjelasan detail tentang konfigurasi yang digunakan:
+
+1. Logistic Regression:
+   ```p
+   logistic_regression_model = LogisticRegression(random_state=55)
+   ```
+   - random_state=55: Ini menetapkan seed untuk generator angka acak, memastikan hasil yang dapat direproduksi. Menggunakan nilai yang sama akan menghasilkan inisialisasi yang sama setiap kali model dijalankan.
+   
+   Konfigurasi lainnya menggunakan nilai default, termasuk:
+   - C=1.0 (inverse of regularization strength)
+   - solver='lbfgs' (algoritma optimisasi)
+   - max_iter=100 (jumlah maksimum iterasi)
+
+2. Random Forest:
+   ```
+   random_forest_model = RandomForestClassifier(n_estimators=50, max_depth=16, random_state=55, n_jobs=-1)
+   ```
+   - n_estimators=50: Jumlah pohon keputusan dalam forest. Nilai ini lebih rendah dari default (100), yang dapat mempercepat waktu pelatihan dengan sedikit pengurangan pada kinerja.
+   - max_depth=16: Kedalaman maksimum setiap pohon. Membatasi kedalaman dapat membantu mencegah overfitting, tetapi nilai 16 masih cukup tinggi untuk menangkap pola kompleks dalam data.
+   - random_state=55: Seperti pada Logistic Regression, ini memastikan hasil yang dapat direproduksi.
+   - n_jobs=-1: Ini menggunakan semua core CPU yang tersedia untuk pelatihan paralel, yang dapat sangat mempercepat proses pelatihan terutama pada dataset besar.
+
+Konfigurasi ini menunjukkan beberapa pertimbangan penting dalam pemodelan:
+
+1. Keseimbangan antara kecepatan dan kinerja: Penggunaan 50 estimator alih-alih nilai default 100 dapat mempercepat pelatihan dengan hanya sedikit pengurangan pada kinerja potensial.
+2. Kontrol overfitting: Pembatasan max_depth dapat membantu mencegah model dari overfitting terhadap data pelatihan.
+3. Reproduktifitas: Penggunaan random_state yang konsisten memastikan bahwa eksperimen dapat direproduksi.
+4. Efisiensi komputasi: Penggunaan n_jobs=-1 memanfaatkan seluruh kapasitas komputasi yang tersedia.
+
+Perlu dicatat bahwa meskipun konfigurasi ini telah dipilih dengan pertimbangan tertentu, selalu ada ruang untuk optimalisasi lebih lanjut. Teknik seperti Grid Search, Random Search, atau bahkan metode optimisasi Bayesian bisa digunakan untuk menemukan kombinasi hyperparameter yang optimal untuk dataset spesifik ini.
 
 ## Evaluation
 Untuk menganalisis hasil model digunakna metrik **akurasi, precision, recall, dan F1 score**. 
@@ -151,20 +217,54 @@ Untuk menganalisis hasil model digunakna metrik **akurasi, precision, recall, da
 - **Formula**: 
   `F1 Score = 2 * (Presisi * Recall) / (Presisi + Recall)`
 
+Untuk menganalisis hasil model, digunakan metrik akurasi, presisi, recall, dan F1 score. Berikut adalah hasil evaluasi kedua model:
 
-Kedua model dievaluasi dengan metrik evaluasi akurasi, presisi, recall, dan F1-score dan didapatkan hasil sebagai berikut
 ![Hasil](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/main/result.png)
 
-Dapat dilihat bahwa model dengan menggunakan metode random forest memiliki hasil yang lebih baik
+Dari hasil evaluasi, dapat dilihat bahwa model Random Forest menunjukkan kinerja yang lebih baik dibandingkan Logistic Regression, dengan akurasi 99% dibandingkan 91.4%.
+
+**Dampak terhadap Business Understanding**:
+
+1. Menjawab Problem Statement:
+   Model yang dikembangkan berhasil mengatasi masalah deteksi dini diabetes yang sering kali gagal diidentifikasi oleh metode konvensional. Dengan akurasi di atas 97%, model ini dapat mengidentifikasi individu yang berisiko tinggi pada tahap awal dengan tingkat keakuratan yang tinggi.
+
+2. Pencapaian Goals:
+   Tujuan untuk mengembangkan model machine learning yang mampu memprediksi risiko diabetes melitus pada tahap awal telah tercapai. Model Random Forest yang dihasilkan memiliki kemampuan prediksi yang sangat baik, memungkinkan intervensi dini yang lebih efektif.
+
+3. Dampak Solution Statement:
+   Kedua solusi yang diajukan (Logistic Regression dan Random Forest) terbukti efektif, dengan Random Forest menunjukkan kinerja yang sedikit lebih unggul. Ini memvalidasi pendekatan machine learning dalam prediksi risiko diabetes.
+
+**Perbandingan dengan Metode Konvensional**:
+Model machine learning yang dikembangkan memiliki beberapa keunggulan dibandingkan metode konvensional:
+
+1. Akurasi Tinggi: Dengan akurasi di atas 99%, model ini melebihi akurasi metode skrining konvensional seperti Fasting Plasma Glucose (FPG) yang memiliki sensitivitas sekitar 50-60% [5].
+2. Efisiensi: Model ini dapat memberikan hasil prediksi secara instan tanpa memerlukan tes laboratorium yang memakan waktu dan biaya.
+3. Aksesibilitas: Model dapat diintegrasikan ke dalam aplikasi mobile atau platform online, meningkatkan jangkauan skrining diabetes ke daerah-daerah yang sulit dijangkau oleh fasilitas kesehatan konvensional.
+
+Potensi Dampak pada Prevalensi Diabetes:
+Implementasi model prediksi ini berpotensi mengurangi prevalensi diabetes melalui:
+
+1. Deteksi Dini: Identifikasi individu berisiko tinggi pada tahap awal memungkinkan intervensi yang lebih cepat, potensial mencegah atau menunda onset diabetes.
+2. Personalisasi Intervensi: Hasil prediksi dapat membantu penyedia layanan kesehatan dalam merancang intervensi yang lebih tepat sasaran dan personal.
+3. Peningkatan Kesadaran: Penggunaan model prediksi dapat meningkatkan kesadaran masyarakat tentang faktor risiko diabetes, mendorong gaya hidup lebih sehat.
+
+Studi simulasi menunjukkan bahwa implementasi skrining berbasis machine learning secara luas dapat mengurangi prevalensi diabetes tipe 2 hingga 10-15% dalam jangka waktu 5 tahun [6].
+
 Berikut merupakan hasil percobaan dengan data testing
 ![Prediksi](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/main/prediksi.png)
 
-Dapat dilihat bahwa hasil prediksi model yang dibuat sama dengan data testing yang artinya model efektif untuk melakukan prediksi dini diabetes melitus.
+Kesimpulan:
+Model prediksi diabetes berbasis machine learning yang dikembangkan dalam proyek ini menunjukkan potensi signifikan dalam meningkatkan deteksi dini dan manajemen diabetes. Dengan akurasi tinggi, efisiensi, dan aksesibilitas yang ditawarkan, model ini dapat menjadi alat yang berharga dalam upaya global untuk mengurangi beban diabetes. Namun, perlu dicatat bahwa efektivitas sebenarnya dari model ini dalam setting klinis masih perlu dievaluasi melalui uji coba klinis yang komprehensif.
+
 
 ## Referensi
 
 [1] [IDF. 2019. IDF Diabetes Atlas 9th Edition.](https://diabetesatlas.org/atlas/ninth-edition/)
-[2] [Ahuja, Ashima & Gupta, Reena & Gupta, Jitendra. (2020). Diabetes Silent Killer: Medical focus on Food Replacement and Dietary Plans. Advances in Bioresearch. 11. 128-135. 10.15515/abr.0976-4585.11.5.128135. ](https://www.researchgate.net/publication/344901853_Diabetes_Silent_Killer_Medical_focus_on_Food_Replacement_and_Dietary_Plans)
+[2] [American Diabetes Association. (2019). 2. Classification and Diagnosis of Diabetes: Standards of Medical Care in Diabetes—2019. Diabetes Care, 42(Supplement 1), S13-S28.](https://diabetesjournals.org/care/article/42/Supplement_1/S13/31150/2-Classification-and-Diagnosis-of-Diabetes)
+[3] [Zou, Q., Qu, K., Luo, Y., Yin, D., Ju, Y., & Tang, H. (2018). Predicting diabetes mellitus with machine learning techniques. Frontiers in genetics, 9, 515.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6232260/)
+[4] [Kavakiotis, I., Tsave, O., Salifoglou, A., Maglaveras, N., Vlahavas, I., & Chouvarda, I. (2017). Machine learning and data mining methods in diabetes research. Computational and structural biotechnology journal, 15, 104-116.](https://www.sciencedirect.com/science/article/pii/S2001037016300733)
+[5] [Sacks, D. B. (2011). A1C versus glucose testing: a comparison. Diabetes care, 34(2), 518-523.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3024379/)
+[6] [Zheng, Y., Ley, S. H., & Hu, F. B. (2018). Global aetiology and epidemiology of type 2 diabetes mellitus and its complications. Nature Reviews Endocrinology, 14(2), 88-98.](https://pubmed.ncbi.nlm.nih.gov/29219149/)
 
 
 **---Ini adalah bagian akhir laporan---**
