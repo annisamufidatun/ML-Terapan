@@ -70,7 +70,7 @@ Untuk memahami data, dilakukan beberapa cara yaitu
 - Melakukan univariate analysis dengan melakukan visualisasi data pada setiap fitur. Untuk fitur numerik digunakan histogram dan data kategorikal dengan bar chart.
 Hasil EDA
 
-![Hasil](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/main/eda_result.png)
+![Hasil](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan-Predictive-Analytics/main/eda_result.png)
 
 
 ## Data Preparation
@@ -219,7 +219,7 @@ Untuk menganalisis hasil model digunakna metrik **akurasi, precision, recall, da
 
 Untuk menganalisis hasil model, digunakan metrik akurasi, presisi, recall, dan F1 score. Berikut adalah hasil evaluasi kedua model:
 
-![Hasil](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/main/result.png)
+![Hasil](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan-Predictive-Analytics/main/result.png)
 
 Dari hasil evaluasi, dapat dilihat bahwa model Random Forest menunjukkan kinerja yang lebih baik dibandingkan Logistic Regression, dengan akurasi 99% dibandingkan 91.4%.
 
@@ -251,7 +251,7 @@ Implementasi model prediksi ini berpotensi mengurangi prevalensi diabetes melalu
 Studi simulasi menunjukkan bahwa implementasi skrining berbasis machine learning secara luas dapat mengurangi prevalensi diabetes tipe 2 hingga 10-15% dalam jangka waktu 5 tahun [6].
 
 Berikut merupakan hasil percobaan dengan data testing
-![Prediksi](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan/main/prediksi.png)
+![Prediksi](https://raw.githubusercontent.com/annisamufidatun/ML-Terapan-Predictive-Analytics/main/prediksi.png)
 
 Kesimpulan:
 Model prediksi diabetes berbasis machine learning yang dikembangkan dalam proyek ini menunjukkan potensi signifikan dalam meningkatkan deteksi dini dan manajemen diabetes. Dengan akurasi tinggi, efisiensi, dan aksesibilitas yang ditawarkan, model ini dapat menjadi alat yang berharga dalam upaya global untuk mengurangi beban diabetes. Namun, perlu dicatat bahwa efektivitas sebenarnya dari model ini dalam setting klinis masih perlu dievaluasi melalui uji coba klinis yang komprehensif.
